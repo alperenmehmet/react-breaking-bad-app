@@ -1,14 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { loadCharacters } from '../store/characters'
+import { fetchCharacters } from '../store/charactersSlice'
 import { useEffect } from 'react'
 import CharacterCard from './CharacterCard'
 
 const Characters = () => {
+  const characters = useSelector((state) => state.items)
   const dispatch = useDispatch()
-  const characters = useSelector((state) => state.list)
 
   useEffect(() => {
-    dispatch(loadCharacters())
+    dispatch(fetchCharacters())
   }, [dispatch])
 
   return (
