@@ -1,5 +1,3 @@
-import { useGlobalContext } from './context'
-
 const App = () => {
   return <>hello</>
 }
