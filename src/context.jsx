@@ -25,8 +25,15 @@ const AppProvider = ({ children }) => {
     fetchData()
   }, [])
 
-  console.log(state.characters)
-  return <AppContext.Provider value={''}>{children}</AppContext.Provider>
+  return (
+    <AppContext.Provider
+      value={{
+        ...state
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  )
 }
 
 export const useGlobalContext = () => {
