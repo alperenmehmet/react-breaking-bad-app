@@ -1,8 +1,9 @@
 import { useGlobalContext } from './context'
 
 const App = () => {
-  const { characters } = useGlobalContext()
+  const { characters, quotes } = useGlobalContext()
   console.log(characters)
+  console.log(quotes)
   return <>hello</>
 }
 

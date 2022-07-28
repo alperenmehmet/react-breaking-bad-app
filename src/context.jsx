@@ -12,7 +12,7 @@ const initialState = {
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const fetchData = async () => {
+  const fetchCharacters = async () => {
     dispatch({ type: 'LOADING' })
     const response = await fetch(
       'https://www.breakingbadapi.com/api/characters'
@@ -21,8 +21,16 @@ const AppProvider = ({ children }) => {
     dispatch({ type: 'GET_CHARACTERS', payload: characters })
   }
 
+  const fetchQuotes = async () => {
+    dispatch({ type: 'LOADING' })
+    const response = await fetch('https://www.breakingbadapi.com/api/quotes')
+    const quotes = await response.json()
+    dispatch({ type: 'GET_QUOTES', payload: quotes })
+  }
+
   useEffect(() => {
-    fetchData()
+    fetchCharacters()
+    fetchQuotes()
   }, [])
 
   return (
