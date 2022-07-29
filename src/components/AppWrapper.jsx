@@ -7,6 +7,7 @@ import Quotes from '../pages/Quotes'
 
 const GlobalStyles = createGlobalStyle`
   :root {
+    --transition: all 0.3s linear;
   }
 
   * {
