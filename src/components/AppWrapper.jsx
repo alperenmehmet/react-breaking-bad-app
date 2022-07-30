@@ -22,6 +22,11 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.5;
     font-size: 0.875rem;
   }
+  
+  img{
+    display: block;
+    width: 100%;
+  }
 `
 
 const Container = styled.div`

@@ -12,11 +12,20 @@ const Nav = styled.div`
 const StyledLink = styled(NavLink)`
   color: black;
   text-decoration: none;
-  margin: 2rem;
   text-transform: uppercase;
   transition: var(--transition);
+  font-weight: 500;
+  font-size: 1.2rem;
   &:hover {
-    color: red;
+    color: gray;
+  }
+
+  @media screen and (min-width: 330px) {
+    margin: 0.25rem;
+  }
+
+  @media screen and (min-width: 576px) {
+    margin: 2rem;
   }
 `
 
@@ -34,7 +43,9 @@ export const Navbar = () => {
   return (
     <Nav>
       <Logo>
-        <LogoImage src={logo} alt="logo" />
+        <StyledLink to="/">
+          <LogoImage src={logo} alt="logo" />
+        </StyledLink>
       </Logo>
       <Links>
         <StyledLink to="/characters">Characters</StyledLink>
