@@ -4,14 +4,15 @@ import { useEffect } from 'react'
 
 const SingleCharacter = () => {
   const { char_id } = useParams()
-  const { singleCharacter, getSingleCharacter } = useGlobalContext()
+  const { getSingleCharacter, singleCharacter } = useGlobalContext()
 
-  console.log('single', singleCharacter)
+  console.log(singleCharacter)
 
   useEffect(() => {
-    getSingleCharacter()
+    getSingleCharacter(char_id)
   }, [char_id])
-  return <div>single character</div>
+
+  return <div>{singleCharacter[0]?.name}</div>
 }
 
 export default SingleCharacter

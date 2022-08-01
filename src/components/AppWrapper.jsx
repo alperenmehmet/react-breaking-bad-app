@@ -4,6 +4,7 @@ import SharedLayout from '../pages/SharedLayout'
 import Home from '../pages/Home'
 import Characters from '../pages/Characters'
 import Quotes from '../pages/Quotes'
+import SingleCharacter from '../pages/SingleCharacter'
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -20,7 +21,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
       Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     line-height: 1.5;
-    font-size: 0.875rem;
+    font-size: 0.875rem;SingleCocktail
   }
   
   img{
@@ -49,6 +50,7 @@ export const AppWrapper = () => {
             <Route index element={<Home />} />
             <Route path="/characters" element={<Characters />} />
             <Route path="/quotes" element={<Quotes />} />
+            <Route path="characters/:char_id" element={<SingleCharacter />} />
           </Route>
         </Routes>
       </BrowserRouter>

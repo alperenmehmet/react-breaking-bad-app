@@ -7,8 +7,7 @@ const initialState = {
   loading: false,
   characters: [],
   quotes: [],
-  singleCharacter: {},
-  char_id: ''
+  singleCharacter: {}
 }
 
 const AppProvider = ({ children }) => {
@@ -30,7 +29,7 @@ const AppProvider = ({ children }) => {
     dispatch({ type: 'GET_QUOTES', payload: quotes })
   }
 
-  const getSingleCharacter = async () => {
+  const getSingleCharacter = async (char_id) => {
     dispatch({ type: 'LOADING' })
     const response = await fetch(
       `https://www.breakingbadapi.com/api/characters/${char_id}`
