@@ -6,7 +6,9 @@ const AppContext = React.createContext()
 const initialState = {
   loading: false,
   characters: [],
-  quotes: []
+  quotes: [],
+  singleCharacter: {},
+  char_id: ''
 }
 
 const AppProvider = ({ children }) => {
@@ -28,6 +30,15 @@ const AppProvider = ({ children }) => {
     dispatch({ type: 'GET_QUOTES', payload: quotes })
   }
 
+  const getSingleCharacter = async () => {
+    dispatch({ type: 'LOADING' })
+    const response = await fetch(
+      `https://www.breakingbadapi.com/api/characters/${char_id}`
+    )
+    const singleCharacter = await response.json()
+    dispatch({ type: 'GET_SINGLE_CHARACTER', payload: singleCharacter })
+  }
+
   useEffect(() => {
     fetchCharacters()
     fetchQuotes()
@@ -36,7 +47,8 @@ const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
-        ...state
+        ...state,
+        getSingleCharacter
       }}
     >
       {children}

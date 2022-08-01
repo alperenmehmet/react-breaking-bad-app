@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Avatar = styled.div`
   background: #e5e5e5;
@@ -22,11 +23,13 @@ const CharacterPortrayed = styled.h3`
   padding-top: 10px;
 `
 
-const Character = ({ img, name, nickname, portrayed }) => {
+const Character = ({ char_id, img, name, nickname, portrayed }) => {
   return (
     <Avatar>
       <div>
-        <img src={img} alt="avatar" />
+        <Link to={`/characters/${char_id}`}>
+          <img src={img} alt="avatar" />
+        </Link>
       </div>
       <div>
         <CharacterName>{name}</CharacterName>
